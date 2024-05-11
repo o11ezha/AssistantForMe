@@ -1,13 +1,6 @@
-DO
-$$
-BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_catalog.pg_roles WHERE rolname ='repl_user') THEN
-    CREATE USER repl_user WITH REPLICATION ENCRYPTED PASSWORD 'eve@123';
-  END IF;
-END
-$$;
+CREATE USER repl_user WITH REPLICATION ENCRYPTED PASSWORD 'eve@123';
 
-CREATE TABLE IF NOT EXISTS emails(
+CREATE TABLE emails(
   id SERIAL PRIMARY KEY,
   email VARCHAR(255),
   telegram_user_id BIGINT,
@@ -15,7 +8,7 @@ CREATE TABLE IF NOT EXISTS emails(
   msg_date DATE default CURRENT_DATE
 );
 
-CREATE TABLE IF NOT EXISTS  phones(
+CREATE TABLE phones(
   id SERIAL PRIMARY KEY,
   phone_number VARCHAR(32),
   telegram_user_id BIGINT,

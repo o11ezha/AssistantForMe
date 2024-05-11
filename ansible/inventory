@@ -1,4 +1,0 @@
-[hosts]
-master_db ansible_host=192.168.192.227 ansible_user=ansible ansible_password=oleg123
-slave_db ansible_host=192.168.192.228 ansible_user=ansible ansible_password=oleg123
-
