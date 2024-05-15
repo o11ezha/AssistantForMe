@@ -3,7 +3,8 @@ version: '3.8'
 services:
   master_db:
     container_name: master_db
-    image: 192.168.192.203:5000/db_image
+    build:
+      context: ./db
     environment:
       POSTGRES_DB: ${DB_DATABASE}
       POSTGRES_USER: ${DB_USER}
@@ -33,7 +34,8 @@ services:
 
   slave_db:
     container_name: slave_db
-    image: 192.168.192.203:5000/db_repl_image
+    build:
+      context: ./db_repl
     environment:
       PGUSER: ${DB_REPL_USER}
       PGPASSWORD: ${DB_REPL_PASSWORD}
@@ -56,7 +58,8 @@ services:
 
   bot:
     container_name: bot
-    image: 192.168.192.203:5000/bot_image
+    build:
+      context: ./bot
     environment:
       TOKEN: ${TOKEN}
       RM_HOST: ${RM_HOST}
