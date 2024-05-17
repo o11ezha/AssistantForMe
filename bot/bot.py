@@ -355,7 +355,7 @@ def ssh_command(update: Update, context):
         "get_w": "w",
         "get_auths": "last -n 10",
         "get_critical": "journalctl -p 2 -n 5",
-        "get_ps": "apt list --installed | head -n 50",
+        "get_ps": "ps -eo comm | head -n 50",
         "get_ss": "ss -tunlp"
     }
 
